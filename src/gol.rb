@@ -1,7 +1,24 @@
 class GoL
+  def self.run
+    new(10).go(20).each do |line|
+      puts line
+    end
+  end
+
   def initialize(size)
     @size = size
   end
+
+  MAP = {
+      '000' => '0',
+      '001' => '1',
+      '010' => '1',
+      '011' => '1',
+      '100' => '1',
+      '101' => '1',
+      '110' => '1',
+      '111' => '0',
+  }
 
 	def go(n)
     results = ['1'.rjust(@size, '0')]
@@ -15,4 +32,8 @@ class GoL
     end
     results
   end
+end
+
+if __FILE__ == $0
+  GoL.run
 end
